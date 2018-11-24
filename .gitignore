@@ -1,36 +1,61 @@
-1- F
-2- F
-3- V
-4- V
-5- F
-6- V
-7- V
-8- F
-9- F
-10- F
+**/nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 
-a) V
-b) F
-c) V
-d) F
-e) F
-f) V
-g) F
-h) F
-i) F
-j) F
+# External tool builders
+.externalToolBuilders/
 
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-5, 3, 1, 0, 2, 4, 8, 6, 7, 9
-0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-0, 2, 1, 4, 3, 7, 6, 9, 8, 5
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
 
-E, D, B, A, C, I, G, F, H, K, J
-A, B, C, D, E, F, G, H, I, J, K
-A, C, B, D, F, H, G, J, K, I, E
+# CDT-specific (C/C++ Development Tooling)
+.cproject
 
-H, D, B, A, C, F, E, G, K, J, I, L
-A, B, C, D, E, F, G, H, I, J, K, L
-A, C, B, E, G, F, D, I, J, L, K, H
+# CDT- autotools
+.autotools
 
-A + B - C * D % E * F
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
