@@ -21,7 +21,7 @@ public class RegistroDAO {
 			
             FileOutputStream fos = new FileOutputStream(id);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(id);
+            oos.writeObject(registro);
             oos.close();    
             fos.close();
 			

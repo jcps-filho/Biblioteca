@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -25,11 +26,15 @@ public class LivrosDAO {
             oos.close();    
             fos.close();
 			
-        } catch (FileNotFoundException e) {
+    } catch (FileNotFoundException e) {
             e.printStackTrace();
 	} catch (IOException e) {
             e.printStackTrace();
-	}	
+	}	catch (NullPointerException e) {
+			System.out.println("O arquivo não pode estar em branco");
+	} catch (InputMismatchException e) {
+			System.out.println("Erro na criação do arquivo, o nome digitado é invalido!");
+	}
 }
 	
     public Livros consultar(String isbn) {

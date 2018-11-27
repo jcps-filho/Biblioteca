@@ -8,7 +8,7 @@ public class Registro implements Serializable{
     /**
      * 
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 3L;
     
     private String codigo;
     private String matricula;
@@ -26,8 +26,8 @@ public class Registro implements Serializable{
 
 
 
-	public void setCodigo(String titulo) {
-		this.codigo = titulo;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 
@@ -38,8 +38,8 @@ public class Registro implements Serializable{
 
 
 
-	public void setMatricula(String aluno) {
-		this.matricula = aluno;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 

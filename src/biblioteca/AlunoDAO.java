@@ -25,11 +25,13 @@ public class AlunoDAO {
             oos.close();    
             fos.close();
 			
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    } catch (FileNotFoundException e) {
+    	System.out.println("Insira uma mátricula valida!");
 	} catch (IOException e) {
-            e.printStackTrace();
-	}	
+        System.out.println("Erro na entrada de informação!");
+	} catch (Exception e) {
+		System.out.println("Erro inesperado!");
+	}
 }
 	
     public Aluno consultar(String matricula) {
@@ -46,11 +48,13 @@ public class AlunoDAO {
 	} catch (FileNotFoundException e) {
             System.out.println("O sistema não pode encontrar o arquivo especificado.");
 	} catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro na entrada de informação!");
 	} catch (ClassNotFoundException e) {
             e.printStackTrace();
 	} catch (ClassCastException e) {
 			System.out.println("A matrícula informada não existe ou está incorreta.");
+	} catch (Exception e){
+		System.out.println("Erro insperado!");
 	}
 	return null;
     }
