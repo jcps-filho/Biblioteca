@@ -27,8 +27,12 @@ public class Principal {
         Random gerador = new Random();
         String opcao = "";
         
+        System.out.println("Grupo: Luiz Carlos, Roosevelt, José Carlos");
+        System.out.println("Disciplina: Metodologia e linguagem de programação");
+        System.out.println("Professor: Rodrigo Fujioka");
+        
         do{
-            System.out.println("======== Biblioteca ========");
+            System.out.println("================ Biblioteca ================");
             System.out.println("1- Cadastrar livros;");
             System.out.println("2- Consultar livros;");
             System.out.println("3- Cadastrar aluno;");
@@ -41,6 +45,8 @@ public class Principal {
             	opcao = leitor.nextLine();
             } catch(InputMismatchException e) {
             	System.out.println("Opção invalida ou incorreta");
+            } catch (Exception e) {
+            	System.out.println("Erro inesperado!");
             }
             switch(opcao){
                 case "1":
@@ -54,7 +60,8 @@ public class Principal {
                     livro.setIsbn(leitor3.nextLine());
                 	
                    
-                    dao.salvar(livro);
+                    	dao.salvar(livro);
+                   
                     } catch (IOException ex) {
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("Erro na criação do arquivo");
@@ -68,25 +75,33 @@ public class Principal {
                     
                 case "2":
                     String isbn;
+                    try {
                     System.out.println("Informe o código ISBN do livro: ");
                     isbn = leitor.nextLine();
 
                     Livros con = dao.consultar(isbn);
                     if(con != null) {
                     	System.out.println(con);
+                    }} catch (InputMismatchException e) {
+                    	System.out.println("Erro na entrada de informações!");
+                    } catch (Exception e) {
+                    	System.out.println("Erro inesperado!");
                     }
+                   
                     break;
                     
                 case "3":
                 	Aluno aluno = new Aluno();
+                	try {
                     System.out.printf("Informe o nome do aluno: ");
                     aluno.setNome(leitor.nextLine());
                     System.out.printf("Informe a matrícula do aluno: ");
                     aluno.setMatricula(leitor1.nextLine());
             
-                    try {
+                    
                         dao1.salvar(aluno);
                     } catch (IOException ex) {
+                    	System.out.println("Erro na entrada de informações!");
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (Exception e) {
                     	System.out.println("Erro inesperado!");
@@ -94,32 +109,41 @@ public class Principal {
                     break;
                 case "4":
                 	String matricula;
+                	try {
                     System.out.printf("Informe a matrícula do aluno: ");
                     matricula = leitor.nextLine();
-                    try {
+                   
                     	Aluno con1 = dao1.consultar(matricula);
                     	if(con1 != null) {
                         	System.out.println(con1);
                         }
                     } catch(ClassCastException e) {
                     	System.out.println("A matrícula informada está incorreta ou não pode ser encontradada");
+                    } catch (InputMismatchException e) {
+                    	System.out.println("Erro na entrada de informações");
+                    } catch (Exception e) {
+                    	System.out.println("Erro inesperado!");
                     }
                 
                     break;
                     
                 case "5":
                 	Registro registro = new Registro();
+                	try {
                     System.out.printf("Informe o código isbn do livro: ");
                     registro.setCodigo(leitor1.nextLine());
                     System.out.printf("Informe a matrícula do aluno: ");
                     registro.setMatricula(leitor2.nextLine()); 
                     registro.setId(Integer.toString(gerador.nextInt(5000)));
 
-            
-                    try {
                         dao2.salvar(registro);
                     } catch (IOException ex) {
+                    	System.out.println("Erro na entrada de informações!");
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InputMismatchException e) {
+                    	System.out.println("Erro na entrada de informações!");
+                    } catch (Exception e) {
+                    	System.out.println("Erro inesperado!");
                     }
                     
                     System.out.println("Devolução prevista para 10 dias, código do emprestimo "+ registro.getId());
@@ -127,16 +151,21 @@ public class Principal {
                 	break;
                 case "6":
                 	String codigo;
+                	try {
                 	System.out.println("Informe o código do emprestimo: ");
                 	codigo = leitor.nextLine();
                 	
-                	try {
+                	
                     	Registro con2 = dao2.consultar(codigo);
                     	if(con2 != null) {
                         	System.out.println(con2);
-                        }
+                    }
                     } catch(ClassCastException e) {
-                    	System.out.println("O código informado está incorreta ou não pode ser encontradada");
+                    	System.out.println("O código informado está incorreta ou não pode ser encontradada!");
+                    } catch (InputMismatchException e) {
+                    	System.out.println("Erro na entrada de informações!");
+                    } catch (Exception e) {
+                    	System.out.println("Erro inesperado!");
                     }
                 	break;
 

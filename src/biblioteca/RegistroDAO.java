@@ -26,11 +26,13 @@ public class RegistroDAO {
             fos.close();
 			
     } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Erro na criação do arquivo! ");
 	} catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro na criação do arquivo! ");
 	} catch (NullPointerException e) {
-			e.printStackTrace();
+			System.out.println("Erro na criação do aquivo!");
+	} catch (Exception e) {
+			System.out.println("Erro inesperado!");
 	}
 }
 	
@@ -46,13 +48,15 @@ public class RegistroDAO {
             return registro;
             
 	} catch (FileNotFoundException e) {
-            System.out.println("O sistema não pode encontrar o arquivo especificado");
+            System.out.println("O sistema não pode encontrar o arquivo especificado!");
 	} catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro na leitura do arquivo, o código informado não existe ou está incorreto!");
 	} catch (ClassNotFoundException e) {
-            e.printStackTrace();
+           System.out.println("Erro na leitura do arquivo, o código informado não existe ou está incorreto!");
 	} catch (ClassCastException e) {
-		System.out.println("O código informado não existe ou está incorreto.");
+		System.out.println("Erro na leitura do arquivo, o código informado não existe ou está incorreto!");
+	} catch (Exception e) {
+		System.out.println("Erro inesperado!");
 	}
 	return null;
     }

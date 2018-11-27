@@ -46,13 +46,13 @@ public class AlunoDAO {
             return aluno;
             
 	} catch (FileNotFoundException e) {
-            System.out.println("O sistema não pode encontrar o arquivo especificado.");
+            System.out.println("O sistema não pode encontrar o arquivo especificado!");
 	} catch (IOException e) {
             System.out.println("Erro na entrada de informação!");
 	} catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("A matrícula informada não existe ou está incorreta!");
 	} catch (ClassCastException e) {
-			System.out.println("A matrícula informada não existe ou está incorreta.");
+			System.out.println("A matrícula informada não existe ou está incorreta!");
 	} catch (Exception e){
 		System.out.println("Erro insperado!");
 	}

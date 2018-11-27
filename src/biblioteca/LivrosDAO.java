@@ -27,13 +27,15 @@ public class LivrosDAO {
             fos.close();
 			
     } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Erro na criação do arquivo!");
 	} catch (IOException e) {
-            e.printStackTrace();
-	}	catch (NullPointerException e) {
+            System.out.println("Erro na criação do arquivo!");
+	} catch (NullPointerException e) {
 			System.out.println("O arquivo não pode estar em branco");
 	} catch (InputMismatchException e) {
 			System.out.println("Erro na criação do arquivo, o nome digitado é invalido!");
+	} catch (Exception e) {
+		System.out.println("Erro inesperado!");
 	}
 }
 	
@@ -51,11 +53,13 @@ public class LivrosDAO {
 	} catch (FileNotFoundException e) {
             System.out.println("O sistema não pode encontrar o arquivo especificado.");
 	} catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro na leitura do arquivo, o código informado não existe ou está incorreto!");
 	} catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Erro na leitura do arquivo!");
 	} catch (ClassCastException e) {
 			System.out.println("O código informado não existe ou está incorreto.");
+	} catch (Exception e) {
+		System.out.println("Erro inesperado!");
 	}
 	return null;
     }
