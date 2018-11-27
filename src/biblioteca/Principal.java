@@ -1,6 +1,9 @@
 package biblioteca;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -129,12 +132,18 @@ public class Principal {
                     
                 case "5":
                 	Registro registro = new Registro();
+                	LocalDate dataAtual = LocalDate.now();
+                	LocalDate dataDevolucao = null;
+                	DateTimeFormatter formatadorBarra = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 	try {
                     System.out.printf("Informe o código isbn do livro: ");
                     registro.setCodigo(leitor1.nextLine());
                     System.out.printf("Informe a matrícula do aluno: ");
                     registro.setMatricula(leitor2.nextLine()); 
                     registro.setId(Integer.toString(gerador.nextInt(5000)));
+                    registro.setDataEmprestimo(dataAtual.format(formatadorBarra));
+                    dataDevolucao = dataAtual.plus(Period.ofDays(10));
+                    registro.setDataDevolucao(dataDevolucao.format(formatadorBarra));
 
                         dao2.salvar(registro);
                     } catch (IOException ex) {
@@ -146,7 +155,7 @@ public class Principal {
                     	System.out.println("Erro inesperado!");
                     }
                     
-                    System.out.println("Devolução prevista para 10 dias, código do emprestimo "+ registro.getId());
+                    System.out.println("Devolução prevista para o dia: "+ registro.getDataDevolucao() +", código do emprestimo "+ registro.getId());
     
                 	break;
                 case "6":

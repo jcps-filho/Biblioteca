@@ -50,9 +50,9 @@ public class AlunoDAO {
 	} catch (IOException e) {
             System.out.println("Erro na entrada de informação!");
 	} catch (ClassNotFoundException e) {
-            System.out.println("A matrícula informada não existe ou está incorreta!");
+            System.out.println("Erro na leitura do arquivo, a matrícula informada não existe ou está incorreta!");
 	} catch (ClassCastException e) {
-			System.out.println("A matrícula informada não existe ou está incorreta!");
+			System.out.println("Erro na leitura do arquivo, a matrícula informada não existe ou está incorreta!");
 	} catch (Exception e){
 		System.out.println("Erro insperado!");
 	}
