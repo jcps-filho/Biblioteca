@@ -18,7 +18,9 @@ public class Registro implements Serializable{
     private String dataDevolucao;
     
     
-
+    public boolean checkLetters(String str) {
+        return str.matches("[1-9]+");
+    }
 
 	@Override
 	public String toString() {
@@ -71,7 +73,11 @@ public class Registro implements Serializable{
 
 
 	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+		if(checkLetters(matricula)) {
+			this.matricula = matricula;
+		} else {
+			System.out.println("Neste campo não é permitido letras ou caracteres especiais!");
+		}
 	}
 
 

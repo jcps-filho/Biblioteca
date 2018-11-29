@@ -26,9 +26,9 @@ public class AlunoDAO {
             fos.close();
 			
     } catch (FileNotFoundException e) {
-    	System.out.println("Insira uma m·tricula valida!");
+    	System.out.println("Insira uma matr√≠cula valida!");
 	} catch (IOException e) {
-        System.out.println("Erro na entrada de informaÁ„o!");
+        System.out.println("Erro na entrada de informa√ß√£o!");
 	} catch (Exception e) {
 		System.out.println("Erro inesperado!");
 	}
@@ -46,13 +46,13 @@ public class AlunoDAO {
             return aluno;
             
 	} catch (FileNotFoundException e) {
-            System.out.println("O sistema n„o pode encontrar o arquivo especificado!");
+            System.out.println("O sistema n√£o pode encontrar o arquivo especificado!");
 	} catch (IOException e) {
-            System.out.println("Erro na entrada de informaÁ„o!");
+            System.out.println("Erro na entrada de informa√ß√£o!");
 	} catch (ClassNotFoundException e) {
-            System.out.println("Erro na leitura do arquivo, a matrÌcula informada n„o existe ou est· incorreta!");
+            System.out.println("Erro na leitura do arquivo, a matr√≠cula informada n√£o existe ou est√° incorreta!");
 	} catch (ClassCastException e) {
-			System.out.println("Erro na leitura do arquivo, a matrÌcula informada n„o existe ou est· incorreta!");
+			System.out.println("Erro na leitura do arquivo, a matr√≠cula informada n√£o existe ou est√° incorreta!");
 	} catch (Exception e){
 		System.out.println("Erro insperado!");
 	}

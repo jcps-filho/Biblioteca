@@ -4,7 +4,7 @@ import java.io.Serializable;
  *
  * @author Carlos
  */
-public class Aluno implements Serializable{
+public class Aluno implements Serializable{	
     /**
      * 
      */
@@ -12,6 +12,14 @@ public class Aluno implements Serializable{
     
     private String matricula;
     private String nome;
+    
+    public boolean checkLetters(String str) {
+        return str.matches("[a-zA-Z áéíóúýãõâôêîû]+");
+    } 
+    
+    public boolean checkNumbers(String str) {
+        return str.matches("[0-9]+");
+    }
 
     @Override
 	public String toString() {
@@ -23,10 +31,10 @@ public class Aluno implements Serializable{
 	}
 
 	public void setMatricula(String matricula) {
-		if(matricula == "" || matricula == null) {
-			System.out.println("O matr�cula precisa ser informada!");
-		} else {
+		if(checkNumbers(matricula)) {
 			this.matricula = matricula;
+		} else {
+			System.out.println("Neste campo não é permitido letras ou caracteres especiais!");
 		}
 	}
 
@@ -35,10 +43,10 @@ public class Aluno implements Serializable{
 	}
 
 	public void setNome(String nome) {
-		if(nome == "" || nome == null) {
-			System.out.println("O nome precisa ser informado!");
-		} else {
+		if(checkLetters(nome)) {
 			this.nome = nome;
+		} else {
+			System.out.println("Neste campo não é permitido números ou caracteres especiais!");
 		}
 	}
 }

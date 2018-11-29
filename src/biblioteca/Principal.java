@@ -47,7 +47,7 @@ public class Principal {
             try {
             	opcao = leitor.nextLine();
             } catch(InputMismatchException e) {
-            	System.out.println("Opção invalida ou incorreta");
+            	System.out.println("Opcão invalida ou incorreta");
             } catch (Exception e) {
             	System.out.println("Erro inesperado!");
             }
@@ -62,9 +62,11 @@ public class Principal {
                     System.out.printf("Informe o código ISBN: ");
                     livro.setIsbn(leitor3.nextLine());
                 	
-                   
+                    if(livro.getAutor() == "" || livro.getAutor() == null) {
+                    	System.out.println("O nome do autor não foi informado da maneira correta!");
+                    } else {
                     	dao.salvar(livro);
-                   
+                    }
                     } catch (IOException ex) {
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("Erro na criação do arquivo");
@@ -100,12 +102,19 @@ public class Principal {
                     aluno.setNome(leitor.nextLine());
                     System.out.printf("Informe a matrícula do aluno: ");
                     aluno.setMatricula(leitor1.nextLine());
-            
                     
-                        dao1.salvar(aluno);
+                    
+                    if(aluno.getNome() == null || aluno.getMatricula() == null) {
+                    	System.out.println("Nome ou matrícula incorretos!");
+                    } else {
+                    	dao1.salvar(aluno);
+                    	System.out.println("Arquivo criado com sucesso!");
+                    }
                     } catch (IOException ex) {
                     	System.out.println("Erro na entrada de informações!");
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InputMismatchException e) {
+                    	System.out.println("Erro na entrada de informações!");
                     } catch (Exception e) {
                     	System.out.println("Erro inesperado!");
                     }
@@ -136,7 +145,7 @@ public class Principal {
                 	LocalDate dataDevolucao = null;
                 	DateTimeFormatter formatadorBarra = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 	try {
-                    System.out.printf("Informe o código isbn do livro: ");
+                    System.out.printf("Informe o código ISBN do livro: ");
                     registro.setCodigo(leitor1.nextLine());
                     System.out.printf("Informe a matrícula do aluno: ");
                     registro.setMatricula(leitor2.nextLine()); 
@@ -144,8 +153,13 @@ public class Principal {
                     registro.setDataEmprestimo(dataAtual.format(formatadorBarra));
                     dataDevolucao = dataAtual.plus(Period.ofDays(10));
                     registro.setDataDevolucao(dataDevolucao.format(formatadorBarra));
-
+                    
+                    if(registro.getMatricula() == "" || registro.getMatricula() == null) {
+                    	System.out.println("A matrícula informada da maneira incorreta!");
+                    } else {
                         dao2.salvar(registro);
+                        System.out.println("Devolução prevista para o dia: "+ registro.getDataDevolucao() +", código do emprestimo "+ registro.getId());
+                    }
                     } catch (IOException ex) {
                     	System.out.println("Erro na entrada de informações!");
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
@@ -155,7 +169,6 @@ public class Principal {
                     	System.out.println("Erro inesperado!");
                     }
                     
-                    System.out.println("Devolução prevista para o dia: "+ registro.getDataDevolucao() +", código do emprestimo "+ registro.getId());
     
                 	break;
                 case "6":

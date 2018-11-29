@@ -13,6 +13,10 @@ public class Livros implements Serializable{
     private String isbn;
     private String titulo;
     private String autor;
+    
+    public boolean checkLetters(String str) {
+        return str.matches("[a-zA-Z]+");
+    }
 
     @Override
     public String toString() {
@@ -40,7 +44,12 @@ public class Livros implements Serializable{
     }
 
     public void setAutor(String autor) {
-        this.autor = autor;
+    	if(checkLetters(autor)) {
+			this.autor = autor;
+		} else {
+			System.out.println("Neste campo não é permitido números ou caracteres especiais!");
+		}
+        
     }
       
 }
